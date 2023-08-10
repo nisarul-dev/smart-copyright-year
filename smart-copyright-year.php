@@ -2,9 +2,9 @@
 /**
  * Plugin Name: Smart Copyright Year
  * Plugin URI: https://github.com/nisarul-dev/smart-copyright-year
- * Description: Auto-update copyright year with [year] shortcode. No manual updates needed! Maintain a pro look effortlessly.
+ * Description: Auto-update copyright year with [year] shortcode. No manual updates needed!
  * Version: 1.0.0
- * Author: Nisarul Amin Naim
+ * Author: Nisarul
  * Author URI: https://www.nisarul.com
  * License: GPLv3 or later
  * License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -48,7 +48,9 @@ function scy_year_shortcode( $atts = [], $content = null, $tag = '' ) {
  * Central location to create all shortcodes.
  */
 function scy_shortcodes_init() {
-	add_shortcode( 'year', 'scy_year_shortcode' );
+	if ( ! shortcode_exists( 'year' ) ) {
+		add_shortcode( 'year', 'scy_year_shortcode' );
+	}
 }
 
 add_action( 'init', 'scy_shortcodes_init' );
